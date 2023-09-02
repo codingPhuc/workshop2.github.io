@@ -9,24 +9,24 @@
 
     <link rel="icon" href="../../../images/favicon.png" type="image/png">
 
-    <title>Tạo IAM Role :: Cách viết một Lab Guide</title>
+    <title>Configuring EC2 instance with MobaXterm :: Cách viết một Lab Guide</title>
 
     
-    <link href="../../../css/nucleus.css?1693637694" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1693637694" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1693637694" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1693637694" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1693637694" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1693637694" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1693637694" rel="stylesheet">
-    <link href="../../../css/theme.css?1693637694" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1693637694" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1693639323" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1693639323" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1693639323" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1693639323" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1693639323" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1693639323" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1693639323" rel="stylesheet">
+    <link href="../../../css/theme.css?1693639323" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1693639323" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1693637694" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1693639323" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1693637694"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1693639323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1693637694"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1693637694"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1693639323"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1693639323"></script>
 <script type="text/javascript">
     
         var baseurl = "\/vi";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1693637694"></script>
+<script type="text/javascript" src="../../../js/search.js?1693639323"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Introduction" class="dd-item 
         
         
         
         ">
       <a href="../../../vi/1-introduce/">
-           <b> 1. </b> Giới thiệu
+           <b> 1. </b> Introduction
           
             <i class="fas fa-check read-icon"></i>
           
@@ -108,13 +108,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/" title="Chuẩn bị" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/" title="preparation" class="dd-item 
         parent
         
         
         ">
       <a href="../../../vi/2-preparation/">
-           <b> 2. </b> Chuẩn bị
+           <b> 2. </b> preparation
           
             <i class="fas fa-check read-icon"></i>
           
@@ -139,13 +139,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.1-creatingvpc/" title="Tạo Dynamodb" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.1-creatingvpc/" title="Creating  VPC" class="dd-item 
         
         
         
         ">
       <a href="../../../vi/2-preparation/2.1-creatingvpc/">
-           <b> 2.1 </b> Tạo Dynamodb
+           <b> 2.1 </b> Creating  VPC
           
             <i class="fas fa-check read-icon"></i>
           
@@ -167,13 +167,13 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.2-creatingsubnet/" title="Tạo IAM Role" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.2-creatingsubnet/" title="Creating Security Group" class="dd-item 
         
         
         
         ">
       <a href="../../../vi/2-preparation/2.2-creatingsubnet/">
-           <b> 2.2 </b> Tạo IAM Role
+           <b> 2.2 </b> Creating Security Group
           
             <i class="fas fa-check read-icon"></i>
           
@@ -195,41 +195,41 @@
  
   
     
-    <li data-nav-id="/vi/2-preparation/2.4-moba/" title="Tạo IAM Role" class="dd-item 
-        
-        active
-        
-        ">
-      <a href="../../../vi/2-preparation/2.4-moba/">
-           <b> 2.2 </b> Tạo IAM Role
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-preparation/2.3-creatinglambdafunction/" title="Tạo Lambda Function" class="dd-item 
+    <li data-nav-id="/vi/2-preparation/2.3-creatinglambdafunction/" title="Create EC2 instance" class="dd-item 
         
         
         
         ">
       <a href="../../../vi/2-preparation/2.3-creatinglambdafunction/">
-           <b> 2.3 </b> Tạo Lambda Function
+           <b> 2.3 </b> Create EC2 instance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-preparation/2.4-moba/" title="Configuring EC2 instance with MobaXterm" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="../../../vi/2-preparation/2.4-moba/">
+           <b> 2.4 </b> Configuring EC2 instance with MobaXterm
           
             <i class="fas fa-check read-icon"></i>
           
@@ -469,7 +469,7 @@
             
           
           
-            <a href='../../../vi/'></a> > <a href='../../../vi/2-preparation/'>Chuẩn bị</a> > Tạo IAM Role
+            <a href='../../../vi/'></a> > <a href='../../../vi/2-preparation/'>preparation</a> > Configuring EC2 instance with MobaXterm
           
         
           
@@ -484,11 +484,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#tạo-iam-role">Tạo IAM Role</a></li>
-      </ul>
-    </li>
+    <li><a href="#install-mobaxterm-and-connecting-the-ec2-instance">install MobaXterm and connecting the EC2 instance</a></li>
+    <li><a href="#configuring-database-in-ec2">configuring database in EC2</a></li>
   </ul>
 </nav>
     </div>
@@ -506,7 +503,7 @@
           
             <h1>
               
-              Tạo IAM Role
+              Configuring EC2 instance with MobaXterm
             </h1>
           
 
@@ -514,50 +511,54 @@
 
 
 
-	<h3 id="tạo-iam-role">Tạo IAM Role</h3>
-<p>Trong bước này, chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này, các chính sách <strong>AmazonDynamoDBFullAccess</strong> và <strong>CloudWatchFullAccess</strong> sẽ được gán, đây là các chính sách cho phép Lambda function tương tác với cơ sở dữ liệu DynamoDB.</p>
+	<h2 id="install-mobaxterm-and-connecting-the-ec2-instance">install MobaXterm and connecting the EC2 instance</h2>
 <ol>
-<li>Truy cập <a href="https://console.aws.amazon.com/iamv2/">giao diện quản lý dịch vụ IAM</a></li>
-<li>Trong thanh điều hướng bên trái, nhấp vào <strong>Roles</strong>.</li>
+<li>click on this link to install <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a></li>
+<li>after installing MobaXterm click on session
+<img src="../../../images/2.prerequisite/moba-a.png" alt="role"></li>
+<li>add the paste the public ip address that we copy into the remote host</li>
+<li>specify the user name as <code>ec2-user</code></li>
+<li>then select the .pem key that we downloaded</li>
+<li>click ok
+<img src="../../../images/2.prerequisite/moba-1-a.png" alt="role"></li>
+<li>we now access our linux easy 2 instance
+<img src="../../../images/2.prerequisite/moba-3.PNG" alt="role"></li>
 </ol>
-<p><img src="../../../images/2.prerequisite/IAM-1-a.PNG" alt="role"></p>
-<ol start="3">
-<li>Nhấp <strong>Tạo vai trò</strong>.</li>
+<h2 id="configuring-database-in-ec2">configuring database in EC2</h2>
+<ol>
+<li>this code will install the mariadb SQL database server in the ec2 instance</li>
 </ol>
-<p><img src="../../../images/2.prerequisite/IAM-2-a.png" alt="role1"></p>
-<ol start="4">
-<li>ở <strong>Chọn thực thể đáng tin cậy</strong></li>
+<pre tabindex="0"><code>sudo su -
+yum -y install mariadb-server wget
+systemctl enable mariadb
+systemctl start mariadb
+yum -y update
+</code></pre><p><img src="../../../images/2.prerequisite/moba-2.PNG" alt="role"></p>
+<ol>
+<li>then set the environment variable of all including the name of our database , the DBPassword  , the DBRootPassword , the database user name</li>
 </ol>
-<ul>
-<li>Nhấp <strong>Dịch vụ AWS</strong>.</li>
-<li>Nhấp <strong>Lambda</strong></li>
-<li>Nhấp <strong>Tiếp theo</strong></li>
-</ul>
-<p><img src="../../../images/2.prerequisite/IAM-3-a.png" alt="role1"></p>
-<ol start="5">
-<li>Trong ô Tìm kiếm, nhập <strong>AmazonDynamoDBFullAccess</strong> và nhấn Enter để tìm kiếm chính sách này.</li>
-</ol>
-<ul>
-<li>Nhấp vào chính sách <strong>AmazonDynamoDBFullAccess</strong>.
-<img src="../../../images/2.prerequisite/IAM-4-a.png" alt="createpolicy1"></li>
-</ul>
-<ol start="6">
-<li>Trong ô Tìm kiếm, nhập <strong>CloudWatchFullAccess</strong> và nhấn Enter để tìm kiếm chính sách này.</li>
-</ol>
-<ul>
-<li>Nhấp vào chính sách <strong>CloudWatchFullAccess</strong></li>
-<li>sau đó nhấp <strong>Tiếp theo</strong>
-<img src="../../../images/2.prerequisite/IAM-5-a.png" alt="createpolicy"></li>
-</ul>
-<ol start="7">
-<li>Nhấp <strong>Tiếp theo: Xem xét</strong>.</li>
-<li>Đặt tên cho Vai trò là <strong>BotRoles</strong> trong Mục Tên Vai trò
-<img src="../../../images/2.prerequisite/IAM-6-a.png" alt="createpolicy"></li>
-<li>Kiểm tra lại xem các vai trò có đúng không</li>
-<li>Nhấp <strong>Tạo vai trò</strong>
-<img src="../../../images/2.prerequisite/IAM-7-a.png" alt="createpolicy"></li>
-</ol>
-<p>Tiếp theo, chúng ta sẽ cấu hình vai trò cho Lambda để nó có thể gọi vào cơ sở dữ liệu.</p>
+<pre tabindex="0"><code>DBName=ec2db
+DBPassword=admin123456
+DBRootPassword=admin123456
+DBUser=ec2dbuser
+</code></pre><p><img src="../../../images/2.prerequisite/moba-4.PNG" alt="role">
+3. set up the database</p>
+<pre tabindex="0"><code>echo &#34;CREATE DATABASE ${DBName};&#34; &gt;&gt; /tmp/db.setup
+echo &#34;CREATE USER &#39;${DBUser}&#39; IDENTIFIED BY &#39;${DBPassword}&#39;;&#34; &gt;&gt; /tmp/db.setup
+echo &#34;GRANT ALL PRIVILEGES ON *.* TO &#39;${DBUser}&#39;@&#39;%&#39;;&#34; &gt;&gt; /tmp/db.setup
+echo &#34;FLUSH PRIVILEGES;&#34; &gt;&gt; /tmp/db.setup
+mysqladmin -u root password &#34;${DBRootPassword}&#34;
+mysql -u root --password=&#34;${DBRootPassword}&#34; &lt; /tmp/db.setup
+rm /tmp/db.setup
+</code></pre><p><img src="../../../images/2.prerequisite/moba-5.PNG" alt="role">
+4. then add some data to test out our instance</p>
+<pre tabindex="0"><code>mysql -u root --password=&#34;${DBRootPassword}&#34;
+USE ec2db;
+CREATE TABLE table1 (id INT, name VARCHAR(45));
+INSERT INTO table1 VALUES(1, &#39;Virat&#39;), (2, &#39;Sachin&#39;), (3, &#39;Dhoni&#39;), (4, &#39;ABD&#39;);
+SELECT * FROM table1;
+</code></pre><p><img src="../../../images/2.prerequisite/moba-6.PNG" alt="role">
+It will now out put us the table that we created using mariadb-server</p>
 
 
 
@@ -668,7 +669,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -685,8 +685,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -706,6 +704,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -759,10 +760,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../../vi/2-preparation/2.2-creatingsubnet/" title="Tạo IAM Role"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../../vi/2-preparation/2.3-creatinglambdafunction/" title="Create EC2 instance"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="../../../vi/2-preparation/2.3-creatinglambdafunction/" title="Tạo Lambda Function" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="../../../vi/3-subnetgroup/" title="Tạo Bot Lex" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -772,19 +773,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1693637694"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1693637694"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1693637694"></script>
-    <script src="../../../js/jquery.sticky.js?1693637694"></script>
-    <script src="../../../js/featherlight.min.js?1693637694"></script>
-    <script src="../../../js/highlight.pack.js?1693637694"></script>
+    <script src="../../../js/clipboard.min.js?1693639323"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1693639323"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1693639323"></script>
+    <script src="../../../js/jquery.sticky.js?1693639323"></script>
+    <script src="../../../js/featherlight.min.js?1693639323"></script>
+    <script src="../../../js/highlight.pack.js?1693639323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1693637694"></script>
-    <script src="../../../js/learn.js?1693637694"></script>
-    <script src="../../../js/hugo-learn.js?1693637694"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1693639323"></script>
+    <script src="../../../js/learn.js?1693639323"></script>
+    <script src="../../../js/hugo-learn.js?1693639323"></script>
 
-    <link href="../../../mermaid/mermaid.css?1693637694" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1693637694"></script>
+    <link href="../../../mermaid/mermaid.css?1693639323" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1693639323"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/vi/</loc>
+    <loc>/vi/2-preparation/2.1-creatingvpc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/"
+                href="/2-preparation/2.1-creatingvpc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/"
+                href="/vi/2-preparation/2.1-creatingvpc/"
                 />
   </url><url>
     <loc>/vi/1-introduce/</loc>
@@ -26,16 +26,16 @@
                 href="/vi/1-introduce/"
                 />
   </url><url>
-    <loc>/vi/2-preparation/2.1-creatingvpc/</loc>
+    <loc>/vi/2-preparation/2.2-creatingsubnet/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-preparation/2.1-creatingvpc/"
+                href="/2-preparation/2.2-creatingsubnet/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-preparation/2.1-creatingvpc/"
+                href="/vi/2-preparation/2.2-creatingsubnet/"
                 />
   </url><url>
     <loc>/vi/2-preparation/</loc>
@@ -50,28 +50,16 @@
                 href="/vi/2-preparation/"
                 />
   </url><url>
-    <loc>/vi/2-preparation/2.2-creatingsubnet/</loc>
+    <loc>/vi/2-preparation/2.3-creatinglambdafunction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-preparation/2.2-creatingsubnet/"
+                href="/2-preparation/2.3-creatinglambdafunction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-preparation/2.2-creatingsubnet/"
-                />
-  </url><url>
-    <loc>/vi/2-preparation/2.4-moba/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/2-preparation/2.4-moba/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/2-preparation/2.4-moba/"
+                href="/vi/2-preparation/2.3-creatinglambdafunction/"
                 />
   </url><url>
     <loc>/vi/3-subnetgroup/</loc>
@@ -86,16 +74,16 @@
                 href="/vi/3-subnetgroup/"
                 />
   </url><url>
-    <loc>/vi/2-preparation/2.3-creatinglambdafunction/</loc>
+    <loc>/vi/2-preparation/2.4-moba/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/2-preparation/2.3-creatinglambdafunction/"
+                href="/2-preparation/2.4-moba/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/2-preparation/2.3-creatinglambdafunction/"
+                href="/vi/2-preparation/2.4-moba/"
                 />
   </url><url>
     <loc>/vi/4-creatingrdsdb/</loc>
@@ -120,6 +108,18 @@
                 rel="alternate"
                 hreflang="vi"
                 href="/vi/5-cleanup/"
+                />
+  </url><url>
+    <loc>/vi/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/"
                 />
   </url><url>
     <loc>/vi/categories/</loc>

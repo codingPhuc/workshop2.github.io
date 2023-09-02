@@ -1,45 +1,38 @@
 [
 {
-	"uri": "/vi/",
-	"title": "",
+	"uri": "/vi/2-preparation/2.1-creatingvpc/",
+	"title": "Creating  VPC",
 	"tags": [],
 	"description": "",
-	"content": "Làm việc với bot Amazon Lex để thu thập dữ liệu nhân viên Tổng quan Trong lab này, bạn sẽ học cách triển khai và sử dụng bot Amazon Lex để tạo một trò chuyện bot có thể thu thập dữ liệu nhân viên và lưu trữ nó trong Dynamodb thông qua hàm Lambda.\nNội dung Giới thiệu Chuẩn bị Tạo Bot Lex Twilio Dọn dẹp "
+	"content": "In this step we will learn how to create a VPC for our database and EC2 instance\nCreating a VPC First go to your AWS VPC console: click create Create VPC In the VPC creation form : click on VPC and more add VPC-RDS as the name tag add 10.0.0.0/16 as the CIDR block click on no IPV6 CIDR set then number of AZ as 2 number of public subnet as 2 number of private subnet as 0 then set the NAT gateway and S3 end point as None finally click on the create VPC log back to your AWS VPC console for the next step "
 },
 {
 	"uri": "/vi/1-introduce/",
-	"title": "Giới thiệu",
+	"title": "Introduction",
 	"tags": [],
 	"description": "",
-	"content": "Tài liệu Dưới đây là các tài liệu mà chúng ta sẽ sử dụng trong suốt quá trình thực hiện lab này\nBot Amazon Lex Amazon Lambda Amazon DynamoDB Twilio Giải thích các tài liệu Bot Amazon Lex là một dịch vụ trí tuệ nhân tạo (AI) được quản lý hoàn toàn với các mô hình ngôn ngữ tự nhiên tiên tiến để thiết kế, xây dựng, kiểm tra và triển khai các giao diện trò chuyện trong các ứng dụng.\nBot Amazon Lex có các trường hợp sử dụng sau:\nXây dựng các trợ lý ảo và trợ lý giọng nói: Kích hoạt khả năng tự phục vụ với các trợ lý trung tâm liên hệ ảo và phản hồi giọng nói tương tác (IVR). Người dùng có thể thay đổi mật khẩu hoặc đặt lịch hẹn mà không cần nói chuyện với một trợ lý con người. Tự động hóa phản hồi thông tin : Thiết kế các giải pháp trò chuyện cung cấp phản hồi cho các câu hỏi thường được đặt ra. Cải thiện luồng trò chuyện Connect \u0026amp; Lex cho hỗ trợ kỹ thuật, quyền lợi HR hoặc tài chính với tìm kiếm ngôn ngữ tự nhiên cho các câu hỏi thường được đặt ra được hỗ trợ bởi Amazon Kendra. Tăng năng suất với bot ứng dụng : Tự động hóa các nhiệm vụ cơ bản của người dùng trong ứng dụng của bạn với các trò chuyện bot mạnh mẽ. Kết nối mượt mà với phần mềm doanh nghiệp khác thông qua AWS Lambda và duy trì kiểm soát quyền truy cập chi tiết thông qua IAM. Tối đa hóa thông tin bị mắc kẹt trong bản ghi : Thiết kế bot trò chuyện bằng cách sử dụng bản ghi trung tâm liên hệ hiện có. Giảm thời gian thiết kế từ tuần thành giờ và tăng tốc triển khai bot. Hôm nay, chúng ta sẽ sử dụng Bot Amazon Lex để tạo quy trình tự động hóa cho việc thu thập và lưu trữ dữ liệu nhân viên vào cơ sở dữ liệu Amazon Lambda là dịch vụ tính toán không máy chủ, dựa trên sự kiện, cho phép bạn chạy mã cho hầu hết mọi loại ứng dụng hoặc dịch vụ backend mà không cần cung cấp hoặc quản lý máy chủ. Bạn có thể kích hoạt Lambda từ hơn 200 dịch vụ AWS và ứng dụng phần mềm dưới dạng dịch vụ (SaaS), và chỉ trả tiền cho những gì bạn sử dụng. Amazon DynamoDB là cơ sở dữ liệu NoSQL hàng đầu, được quản lý hoàn toàn, không máy chủ, dựa trên khóa-vị trí, được thiết kế để chạy ứng dụng hiệu suất cao ở bất kỳ quy mô nào. DynamoDB cung cấp bảo mật tích hợp, sao lưu liên tục, sao lưu đa khu vực tự động, bộ nhớ cache trong bộ nhớ, và các công cụ nhập và xuất dữ liệu. Twilio là một nền tảng truyền thông cung cấp các API cho các nhà phát triển để tích hợp các tính năng như gửi và nhận tin nhắn, thực hiện cuộc gọi điện thoại và xử lý video trong ứng dụng của họ. Nó cho phép doanh nghiệp kết nối với khách hàng thông qua các kênh giao tiếp khác nhau.\n"
-},
-{
-	"uri": "/vi/2-preparation/2.1-creatingvpc/",
-	"title": "Tạo Dynamodb",
-	"tags": [],
-	"description": "",
-	"content": "Trong bước này, chúng ta sẽ tìm hiểu cách tạo cơ sở dữ liệu Dynamodb\nCác bước sau sẽ giúp bạn tạo cơ sở dữ liệu Dynamodb với cấu hình đúng:\nTạo cơ sở dữ liệu Dynamodb EmployeesDataBases Đầu tiên, truy cập bảng điều khiển AWS của bạn: nhấp vào thanh tìm kiếm và nhập dynamoDB nhấp vào dynamoDB Trên trang Dynamodb, nhấp vào tạo bảng Trên biểu mẫu tạo Dynamodb :\nđiền tên bảng là EmployeesDataBases Khóa phân vùng là PhoneNumEmp và để khóa sắp xếp trống trên phần thiết lập bảng, nhấp Tùy chỉnh cài đặt trên lớp bảng, chọn Dynamodb tiêu chuẩn trên khả năng đọc/giảng viết, nhấp vào On-demand Chúng ta cần chọn On-demand vì chúng ta không biết mức thời gian chúng ta viết vào cơ sở dữ liệu, nhưng điều này không được khuyến nghị vì nó sẽ khiến chúng ta mất tiền nếu có nhiều người gọi ứng dụng\nở bước cuối, nhấp vào tạo bảng Kiểm tra xem bảng đã được tạo chưa, thông thường điều này mất 1 phút : Nếu trạng thái của bảng = hoạt động, chúc mừng bạn đã thành công trong việc tạo cơ sở dữ liệu Dynamodb cho nhân viên "
-},
-{
-	"uri": "/vi/2-preparation/",
-	"title": "Chuẩn bị",
-	"tags": [],
-	"description": "",
-	"content": "\rBạn cần tạo cơ sở dữ liệu DynamoDB và hàm Lambda để tiếp tục thực hiện lab này\nĐể tìm hiểu cách tạo cơ sở dữ liệu DynamoDB và hàm Lambda, bạn có thể tham khảo các lab sau:\nVề cơ sở dữ liệu DynamoDB Làm việc với Lambda Để Lambda function có thể làm việc với cơ sở dữ liệu DynamoDB, chúng ta cần tạo vai trò IAM riêng để có quyền truy cập.\nNội dung Tạo cơ sở dữ liệu DynamoDB Tạo vai trò IAM Tạo hàm Lambda "
+	"content": "resources these are the following recourse that we will be using thought out this lab\nEc2 instance Amazon RDS Amazon VPC resources explanation Amazon VPC\nAmazon Virtual Private Cloud (Amazon VPC) gives you full control over your virtual networking environment, including resource placement, connectivity, and security. Get started by setting up your VPC in the AWS service console. Next, add resources to it such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances. Finally, define how your VPCs communicate with each other across accounts, Availability Zones, or AWS Regions. In the example below, network traffic is being shared between two VPCs within each Region.\nAmazon VPC have the following used case:\nLaunch a simple website or blog : Improve your web application security posture by enforcing rules on inbound and outbound connections. Host multi-tier web applications: Define network connectivity and restrictions between your web servers, application servers, and databases. Create hybrid connections : Build and manage a compatible VPC network across your AWS services and on premises.. today we will be using Amazon VPC to create a Virtual Private Cloud for our RDS databases and instance Amazon Relational Database Service\nAmazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud. Choose from seven popular engines — Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server — and deploy on-premises with Amazon RDS on AWS Outposts.\nAmazon Relational Database Service have the following used case:\nBuild web and mobile applications :Support growing apps with high availability, throughput, and storage scalability. Take advantage of flexible pay-per-use pricing to suit various application usage patterns. Move to managed databases :Innovate and build new apps with Amazon RDS instead of worrying about self-managing your databases, which can be time consuming, complex, and expensive. Break free from legacy databases : Free yourself from expensive, punitive, commercial databases by migrating to Amazon Aurora. When you migrate to Aurora, you get the scalability, performance, and availability of commercial databases at 1/10th the cost. Amazon EC2 instance\nAmazon Elastic Compute Cloud (Amazon EC2) offers the broadest and deepest compute platform, with over 700 instances and choice of the latest processor, storage, networking, operating system, and purchase model to help you best match the needs of your workload. We are the first major cloud provider that supports Intel, AMD, and Arm processors, the only cloud with on-demand EC2 Mac instances, and the only cloud with 400 Gbps Ethernet networking. We offer the best price performance for machine learning training, as well as the lowest cost per inference instances in the cloud. More SAP, high performance computing (HPC), ML, and Windows workloads run on AWS than any other cloud.\nAmazon EC2 instance have the following used case:\nRun cloud-native and enterprise applications :Amazon EC2 delivers secure, reliable, high-performance, and cost-effective compute infrastructure to meet demanding business needs. Scale for HPC applications :Access the on-demand infrastructure and capacity you need to run HPC applications faster and cost-effectively. "
 },
 {
 	"uri": "/vi/2-preparation/2.2-creatingsubnet/",
-	"title": "Tạo IAM Role",
+	"title": "Creating Security Group",
 	"tags": [],
 	"description": "",
-	"content": "Tạo IAM Role Trong bước này, chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này, các chính sách AmazonDynamoDBFullAccess và CloudWatchFullAccess sẽ được gán, đây là các chính sách cho phép Lambda function tương tác với cơ sở dữ liệu DynamoDB.\nTruy cập giao diện quản lý dịch vụ IAM Trong thanh điều hướng bên trái, nhấp vào Roles. Nhấp Tạo vai trò. ở Chọn thực thể đáng tin cậy Nhấp Dịch vụ AWS. Nhấp Lambda Nhấp Tiếp theo Trong ô Tìm kiếm, nhập AmazonDynamoDBFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách AmazonDynamoDBFullAccess. Trong ô Tìm kiếm, nhập CloudWatchFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách CloudWatchFullAccess sau đó nhấp Tiếp theo Nhấp Tiếp theo: Xem xét. Đặt tên cho Vai trò là BotRoles trong Mục Tên Vai trò Kiểm tra lại xem các vai trò có đúng không Nhấp Tạo vai trò Tiếp theo, chúng ta sẽ cấu hình vai trò cho Lambda để nó có thể gọi vào cơ sở dữ liệu.\n"
+	"content": "Creating security group In this step we are going to create the security group for Amazon RDS and EC2 instance\nGo to VPC console In the left nav bar , click on security group . click on create security group 4. In the create security group form :\nName the security group as SCG-RDS Name the description as security group for RDS In the inbound rule add 4 different rule : one for SSH one for HTTP one for HTTPS one for SQL/AURORA set all the source to ipv4-everywhere on the out bound rule set as All traffic then click create security group "
 },
 {
-	"uri": "/vi/2-preparation/2.4-moba/",
-	"title": "Tạo IAM Role",
+	"uri": "/vi/2-preparation/",
+	"title": "preparation",
 	"tags": [],
 	"description": "",
-	"content": "Tạo IAM Role Trong bước này, chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này, các chính sách AmazonDynamoDBFullAccess và CloudWatchFullAccess sẽ được gán, đây là các chính sách cho phép Lambda function tương tác với cơ sở dữ liệu DynamoDB.\nTruy cập giao diện quản lý dịch vụ IAM Trong thanh điều hướng bên trái, nhấp vào Roles. Nhấp Tạo vai trò. ở Chọn thực thể đáng tin cậy Nhấp Dịch vụ AWS. Nhấp Lambda Nhấp Tiếp theo Trong ô Tìm kiếm, nhập AmazonDynamoDBFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách AmazonDynamoDBFullAccess. Trong ô Tìm kiếm, nhập CloudWatchFullAccess và nhấn Enter để tìm kiếm chính sách này. Nhấp vào chính sách CloudWatchFullAccess sau đó nhấp Tiếp theo Nhấp Tiếp theo: Xem xét. Đặt tên cho Vai trò là BotRoles trong Mục Tên Vai trò Kiểm tra lại xem các vai trò có đúng không Nhấp Tạo vai trò Tiếp theo, chúng ta sẽ cấu hình vai trò cho Lambda để nó có thể gọi vào cơ sở dữ liệu.\n"
+	"content": "\ryou need to learn how to create VPC and linux in a EC2 instance to proceed with this lab\nTo learn how to create linux ec2 instance and vpn, you can refer to these lab:\nstarting with aws VPC simple EC2 instance You need to create VPC and EC2 first before interacting with the Amazon RDS database Content Creating VPC Creating Security Group Create EC2 instance Configuring EC2 instance with MobaXterm "
+},
+{
+	"uri": "/vi/2-preparation/2.3-creatinglambdafunction/",
+	"title": "Create EC2 instance",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will learn how to create EC2 instance\nThe architecture overview after you complete this step will be as follows:\nGo to EC2 console click on launch instance In the EC2 form : name the EC2 instance as EC2-RDS click Amazon linux choose Amazon linux 2 AMI choose the 64 bit architecture choose t3.mirco as instance type then click create new key pair In the new key pair form : name the new key as RDS-key key pair type as RSA private key format as .pem click create key pair In the network setting click edit choose the VPC-RDS as the VPC that we just created choose the only subnet in VPC-RDS choose auto assign IP enable click select exiting security group choose the security group we just created SCG-RDS then click launch instance In instance copy the instance public ip address "
 },
 {
 	"uri": "/vi/3-subnetgroup/",
@@ -49,11 +42,11 @@
 	"content": "Trong bước này, chúng ta sẽ cấu hình bot AWS Lexv2 của chúng ta với các slot và intent chính xác và kết nối nó với hàm Lambda của chúng ta. Nội dung 3.1. Tạo loại bot Lex và tùy chỉnh\n3.2. TẠO BOT LEX\n"
 },
 {
-	"uri": "/vi/2-preparation/2.3-creatinglambdafunction/",
-	"title": "Tạo Lambda Function",
+	"uri": "/vi/2-preparation/2.4-moba/",
+	"title": "Configuring EC2 instance with MobaXterm",
 	"tags": [],
 	"description": "",
-	"content": "Trong bước này, chúng ta sẽ tìm hiểu cách tạo một Lambda function để làm việc với DynamoDb và là logic thực hiện cho bot Lex của chúng ta\nTổng quan kiến trúc sau khi bạn hoàn thành bước này sẽ như sau:\nTruy cập Giao diện Dịch vụ Lambda Nhấp vào tạo hàm Trong trang tạo hàm đặt Tên hàm thành BotFunction đặt Runtime thành Python 3.11 chọn Kiến trúc thành x86_64 thay đổi Vai trò thực thi mặc định thành Sử dụng vai trò đã tồn tại trong vai trò đã tồn tại, chọn BotRoles mà chúng ta đã tạo sau đó nhấp Tạo hàm Trong BotFunction, nhấp vào cấu hình Trong tab cấu hình : nhấp vào Biến môi trường sau đó nhấp Chỉnh sửa Trong tab chỉnh sửa, nhấp vào Thêm biến môi trường Chỉnh sửa khóa và giá trị để kết nối cơ sở dữ liệu với hàm Lambda : cho môi trường, thêm khóa TABLE_NAME cho giá trị, thêm EmployeesDataBases sau đó nhấp Lưu Lấy mã cho Hàm Lambda : truy cập vào liên kết Github này GITHUB sau đó nhấn ctrl + A để sao chép toàn bộ mã Dán mã vào tab mã trong BotFunction sau đó nhấp Triển khai Bây giờ chúng ta đã hoàn thành việc chuẩn bị cho cơ sở dữ liệu và logic cho bot Lex, bây giờ chúng ta sẽ tiếp tục cấu hình cho bot Lex\n"
+	"content": "install MobaXterm and connecting the EC2 instance click on this link to install MobaXterm after installing MobaXterm click on session add the paste the public ip address that we copy into the remote host specify the user name as ec2-user then select the .pem key that we downloaded click ok we now access our linux easy 2 instance configuring database in EC2 this code will install the mariadb SQL database server in the ec2 instance sudo su -\ryum -y install mariadb-server wget\rsystemctl enable mariadb\rsystemctl start mariadb\ryum -y update then set the environment variable of all including the name of our database , the DBPassword , the DBRootPassword , the database user name DBName=ec2db\rDBPassword=admin123456\rDBRootPassword=admin123456\rDBUser=ec2dbuser 3. set up the database\necho \u0026#34;CREATE DATABASE ${DBName};\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;CREATE USER \u0026#39;${DBUser}\u0026#39; IDENTIFIED BY \u0026#39;${DBPassword}\u0026#39;;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;GRANT ALL PRIVILEGES ON *.* TO \u0026#39;${DBUser}\u0026#39;@\u0026#39;%\u0026#39;;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;FLUSH PRIVILEGES;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\rmysqladmin -u root password \u0026#34;${DBRootPassword}\u0026#34;\rmysql -u root --password=\u0026#34;${DBRootPassword}\u0026#34; \u0026lt; /tmp/db.setup\rrm /tmp/db.setup 4. then add some data to test out our instance\nmysql -u root --password=\u0026#34;${DBRootPassword}\u0026#34;\rUSE ec2db;\rCREATE TABLE table1 (id INT, name VARCHAR(45));\rINSERT INTO table1 VALUES(1, \u0026#39;Virat\u0026#39;), (2, \u0026#39;Sachin\u0026#39;), (3, \u0026#39;Dhoni\u0026#39;), (4, \u0026#39;ABD\u0026#39;);\rSELECT * FROM table1; It will now out put us the table that we created using mariadb-server\n"
 },
 {
 	"uri": "/vi/4-creatingrdsdb/",
@@ -68,6 +61,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Trong chương này, chúng ta sẽ làm sạch tất cả các tài nguyên mà chúng ta đã sử dụng.\nDọn dẹp cơ sở dữ liệu Dynamodb Điều hướng đến bảng điều khiển Dynamodb Dynamodb Nhấp vào EmployeesDatabases Nhấp vào Xóa Một biểu mẫu xác nhận xóa sẽ xuất hiện : Điền vào \u0026ldquo;confirm\u0026rdquo; Sau đó nhấp Xóa Dọn dẹp hàm Lambda Điều hướng đến Giao diện Dịch vụ Lambda Nhấp vào BotFunction Nhấp vào Xóa Một biểu mẫu xác nhận xóa sẽ xuất hiện : Điền vào \u0026ldquo;delete\u0026rdquo; Sau đó nhấp Xóa Dọn dẹp bot Lex Điều hướng đến bảng điều khiển bot Lex lex bot Nhấp vào Xóa để xóa bot Lex "
+},
+{
+	"uri": "/vi/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": "title : \u0026ldquo;Connecting your ec2 to Amazon RDS\u0026rdquo; date : \u0026ldquo;r Sys.Date()\u0026rdquo; weight : 1 chapter : false configuring our linux ec2 instance to work with Amazon RDS Lab structure In this lab we will be configuring Amazon linux in our ec2 instance to work with Amazon RDS relational database\ncontent Introduction preparation creating subnet group Creating RDS database Clean up "
 },
 {
 	"uri": "/vi/categories/",

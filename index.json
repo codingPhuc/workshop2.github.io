@@ -1,0 +1,85 @@
+[
+{
+	"uri": "/",
+	"title": "Connecting your ec2 to Amazon RDS",
+	"tags": [],
+	"description": "",
+	"content": "configuring our linux ec2 instance to work with Amazon RDS Lab structure In this lab we will be configuring Amazon linux in our ec2 instance to work with Amazon RDS relational database\ncontent Introduction preparation creating subnet group Creating RDS database Clean up "
+},
+{
+	"uri": "/2-preparation/2.1-creatingvpc/",
+	"title": "Creating  VPC",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will learn how to create a VPC for our database and EC2 instance\nCreating a VPC First go to your AWS VPC console: click create Create VPC In the VPC creation form : click on VPC and more add VPC-RDS as the name tag add 10.0.0.0/16 as the CIDR block click on no IPV6 CIDR set then number of AZ as 2 number of public subnet as 2 number of private subnet as 0 then set the NAT gateway and S3 end point as None finally click on the create VPC log back to your AWS VPC console for the next step "
+},
+{
+	"uri": "/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "resources these are the following recourse that we will be using thought out this lab\nEc2 instance Amazon RDS Amazon VPC resources explanation Amazon VPC\nAmazon Virtual Private Cloud (Amazon VPC) gives you full control over your virtual networking environment, including resource placement, connectivity, and security. Get started by setting up your VPC in the AWS service console. Next, add resources to it such as Amazon Elastic Compute Cloud (EC2) and Amazon Relational Database Service (RDS) instances. Finally, define how your VPCs communicate with each other across accounts, Availability Zones, or AWS Regions. In the example below, network traffic is being shared between two VPCs within each Region.\nAmazon VPC have the following used case:\nLaunch a simple website or blog : Improve your web application security posture by enforcing rules on inbound and outbound connections. Host multi-tier web applications: Define network connectivity and restrictions between your web servers, application servers, and databases. Create hybrid connections : Build and manage a compatible VPC network across your AWS services and on premises.. today we will be using Amazon VPC to create a Virtual Private Cloud for our RDS databases and instance Amazon Relational Database Service\nAmazon Relational Database Service (Amazon RDS) is a collection of managed services that makes it simple to set up, operate, and scale databases in the cloud. Choose from seven popular engines — Amazon Aurora with MySQL compatibility, Amazon Aurora with PostgreSQL compatibility, MySQL, MariaDB, PostgreSQL, Oracle, and SQL Server — and deploy on-premises with Amazon RDS on AWS Outposts.\nAmazon Relational Database Service have the following used case:\nBuild web and mobile applications :Support growing apps with high availability, throughput, and storage scalability. Take advantage of flexible pay-per-use pricing to suit various application usage patterns. Move to managed databases :Innovate and build new apps with Amazon RDS instead of worrying about self-managing your databases, which can be time consuming, complex, and expensive. Break free from legacy databases : Free yourself from expensive, punitive, commercial databases by migrating to Amazon Aurora. When you migrate to Aurora, you get the scalability, performance, and availability of commercial databases at 1/10th the cost. Amazon EC2 instance\nAmazon Elastic Compute Cloud (Amazon EC2) offers the broadest and deepest compute platform, with over 700 instances and choice of the latest processor, storage, networking, operating system, and purchase model to help you best match the needs of your workload. We are the first major cloud provider that supports Intel, AMD, and Arm processors, the only cloud with on-demand EC2 Mac instances, and the only cloud with 400 Gbps Ethernet networking. We offer the best price performance for machine learning training, as well as the lowest cost per inference instances in the cloud. More SAP, high performance computing (HPC), ML, and Windows workloads run on AWS than any other cloud.\nAmazon EC2 instance have the following used case:\nRun cloud-native and enterprise applications :Amazon EC2 delivers secure, reliable, high-performance, and cost-effective compute infrastructure to meet demanding business needs. Scale for HPC applications :Access the on-demand infrastructure and capacity you need to run HPC applications faster and cost-effectively. "
+},
+{
+	"uri": "/2-preparation/2.2-creatingsubnet/",
+	"title": "Creating Security Group",
+	"tags": [],
+	"description": "",
+	"content": "Creating security group In this step we are going to create the security group for Amazon RDS and EC2 instance\nGo to VPC console In the left nav bar , click on security group . click on create security group 4. In the create security group form :\nName the security group as SCG-RDS Name the description as security group for RDS In the inbound rule add 4 different rule : one for SSH one for HTTP one for HTTPS one for SQL/AURORA set all the source to ipv4-everywhere on the out bound rule set as All traffic then click create security group "
+},
+{
+	"uri": "/2-preparation/",
+	"title": "preparation",
+	"tags": [],
+	"description": "",
+	"content": "\ryou need to learn how to create VPC and linux in a EC2 instance to proceed with this lab\nTo learn how to create linux ec2 instance and vpn, you can refer to these lab:\nstarting with aws VPC simple EC2 instance You need to create VPC and EC2 first before interacting with the Amazon RDS database Content Creating VPC Creating Security Group Create EC2 instance Configuring EC2 instance with MobaXterm "
+},
+{
+	"uri": "/2-preparation/2.3-creatinglambdafunction/",
+	"title": "Create EC2 instance",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will learn how to create EC2 instance\nThe architecture overview after you complete this step will be as follows:\nGo to EC2 console click on launch instance In the EC2 form : name the EC2 instance as EC2-RDS click Amazon linux choose Amazon linux 2 AMI choose the 64 bit architecture choose t3.mirco as instance type then click create new key pair In the new key pair form : name the new key as RDS-key key pair type as RSA private key format as .pem click create key pair In the network setting click edit choose the VPC-RDS as the VPC that we just created choose the only subnet in VPC-RDS choose auto assign IP enable click select exiting security group choose the security group we just created SCG-RDS then click launch instance In instance copy the instance public ip address "
+},
+{
+	"uri": "/3-subnetgroup/",
+	"title": "Creating Subnet Group",
+	"tags": [],
+	"description": "",
+	"content": "In this step we will be creating subnet group for our RDS database\nCreating the RDS subnet group console go to the Amazon RDS console\non the left nav nav bar , click on subnet group click on create DB subnet group in the subnet creation form : name the subnet as SUBNET-RDS type in the description this is a subnet for RDS choose the vpc that we just created VPC-RDS-VPC in AZ choose the two availability zone that we created in my cast being eu-north-1a and eu-north-1b in the subnet choose the two subnet in the AZ zone then click create "
+},
+{
+	"uri": "/2-preparation/2.4-moba/",
+	"title": "Configuring EC2 instance with MobaXterm",
+	"tags": [],
+	"description": "",
+	"content": "install MobaXterm and connecting the EC2 instance click on this link to install MobaXterm after installing MobaXterm click on session add the paste the public ip address that we copy into the remote host specify the user name as ec2-user then select the .pem key that we downloaded click ok we now access our linux easy 2 instance configuring database in EC2 this code will install the mariadb SQL database server in the ec2 instance sudo su -\ryum -y install mariadb-server wget\rsystemctl enable mariadb\rsystemctl start mariadb\ryum -y update then set the environment variable of all including the name of our database , the DBPassword , the DBRootPassword , the database user name DBName=ec2db\rDBPassword=admin123456\rDBRootPassword=admin123456\rDBUser=ec2dbuser 3. set up the database\necho \u0026#34;CREATE DATABASE ${DBName};\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;CREATE USER \u0026#39;${DBUser}\u0026#39; IDENTIFIED BY \u0026#39;${DBPassword}\u0026#39;;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;GRANT ALL PRIVILEGES ON *.* TO \u0026#39;${DBUser}\u0026#39;@\u0026#39;%\u0026#39;;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\recho \u0026#34;FLUSH PRIVILEGES;\u0026#34; \u0026gt;\u0026gt; /tmp/db.setup\rmysqladmin -u root password \u0026#34;${DBRootPassword}\u0026#34;\rmysql -u root --password=\u0026#34;${DBRootPassword}\u0026#34; \u0026lt; /tmp/db.setup\rrm /tmp/db.setup 4. then add some data to test out our instance\nmysql -u root --password=\u0026#34;${DBRootPassword}\u0026#34;\rUSE ec2db;\rCREATE TABLE table1 (id INT, name VARCHAR(45));\rINSERT INTO table1 VALUES(1, \u0026#39;Virat\u0026#39;), (2, \u0026#39;Sachin\u0026#39;), (3, \u0026#39;Dhoni\u0026#39;), (4, \u0026#39;ABD\u0026#39;);\rSELECT * FROM table1; It will now out put us the table that we created using mariadb-server\n"
+},
+{
+	"uri": "/4-creatingrdsdb/",
+	"title": "Creating RDS database",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter we will be creating the rds database and configuring it to work with our ec2 instance\ncreating RDS database go to the Amazon RDS console on the nav bar click database click on Create database 4. in the RDS database creation form :\nin the database creation method choose Standard method\nin the Engine Option choose MariaDB\nChoose the latest version of the database engine in my cast being 10.6.14 in template choose free tier Free tier is still gona cost you money so remember to delete the database after creation\nname the instance identifier as db-rds\nname the master user as userdb\nset the master password as admin123456\nconfirm the master password as admin123456 in connectivity choose Don\u0026rsquo;t connect to an EC2 compute resource\nset the network type as IPV4\nchoose the private cloud that we created VPC-RDS-vpc\nthen choose the subnet group that we just created subnet-rds\nset the public access to no in the VPC security choose the existing security our being SCG-RDS\nthe the certificate authority to the default\nin the database authentication choose password create a initial database name rdsdb\nthen click create when the creation is over which take 10 minute click on the database that we just created then copy the end point configuring our easy 2 instance to work with the database paste this code which will transfer our mariadb to sql file , enter your password being admin123456 mysqldump -u root -p ec2db \u0026gt; ec2db.sql 2. then paste the end point that we copy to the \u0026lt;\u0026gt; , this code will transfer our ec2db.sql to the rdsdb , enter your password being admin123456\nmysql -h \u0026lt;replace-rds-end-point-here\u0026gt; -P 3306 -u rdsuser -p rdsdb \u0026lt; ec2db.sql 3. then access the database again , enter your password being admin123456\nmysql -h db-rds.cnsbm6b5qc8c.eu-north-1.rds.amazonaws.com -P 3306 -u userdb -p 4. enter this code to use the database then check if the value are transfer\nUSE rdsdb\rSELECT * FROM table1; we can see that the value from our database have been transfer to the RDS database in Amazon\n"
+},
+{
+	"uri": "/5-cleanup/",
+	"title": "Clean up",
+	"tags": [],
+	"description": "",
+	"content": "In this chapter we will clean Up all the resource that we have been using\nclean up the RDS database go to the Amazon RDS console click on db-rds click on delete confirm the deletion by adding delete me clean up the ec2 instance Go to EC2 console click on EC2-RDS then click terminate to terminate the instance click on terminate instance delete the RDS subnet go to RDS console click on rds console in RDS subnet click delete subnet confirm the deletion clean up the vpc 2 instance go to vpc console click on rds console click on action click delete VPC confirm the deletion by filling in delete "
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
